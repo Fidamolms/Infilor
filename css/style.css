@@ -1,0 +1,710 @@
+/* ===== RESET & BASE STYLES ===== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+
+.bg-slide.active {
+    opacity: 1;
+}
+
+#bg1 {
+    background-image: url('../assets/bg1.jpg');
+}
+
+#bg2 {
+    background-image: url('../assets/bg2.jpg');
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* ===== TEXT ANIMATIONS ===== */
+.animated-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.animated-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52,152,219,0.3);
+    animation: fadeIn 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== DROPDOWN CONTENT ===== */
+.content-dropdown {
+    background: white;
+    color: #333;
+    padding: 80px 0;
+    position: relative;
+    z-index: 3;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.8s forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.content-columns {
+    column-count: 2;
+    column-gap: 40px;
+    margin-top: 30px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .animated-title {
+        font-size: 2.5rem;
+    }
+    
+    .animated-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .content-dropdown {
+        padding: 50px 20px;
+    }
+    
+    .content-columns {
+        column-count: 1;
+    }
+}
+/* ===== DROPDOWN CONTENT - BEAUTIFUL VERSION ===== */
+.content-dropdown {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 100px 0;
+    position: relative;
+    z-index: 10;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUpFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+  }
+  
+  @keyframes slideUpFadeIn {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .content-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid #3498db;
+  }
+  
+  .content-title {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .content-title i {
+    color: #3498db;
+    font-size: 1.8rem;
+  }
+  
+  .content-intro {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 25px;
+  }
+  
+  .content-intro::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 3px;
+    width: 15px;
+    background: #3498db;
+    transform: translateY(-50%);
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .content-item {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+  }
+  
+  .content-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-left: 3px solid #3498db;
+    background: white;
+  }
+  
+  .content-item i {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 20px;
+  }
+  
+  .content-item h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+  }
+  
+  .content-item p {
+    color: #7f8c8d;
+    line-height: 1.7;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .content-dropdown {
+      padding: 60px 20px;
+    }
+    
+    .content-card {
+      padding: 30px 20px;
+    }
+    
+    .content-title {
+      font-size: 1.8rem;
+    }
+  }
+  /* ===== BLACK ACCENT VERSION ===== */
+
+/* Button */
+.btn-explore {
+    background-color: #000000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  .btn-explore:hover {
+    background-color: #333333;
+  }
+  
+  /* Card Top Border */
+  .content-card {
+    border-top: 5px solid #000000;
+  }
+  
+  /* Icons */
+  .content-title i,
+  .content-item i {
+    color: #000000;
+  }
+  
+  /* Intro Line */
+  .content-intro::before {
+    background: #000000;
+  }
+  
+  /* Hover Effect */
+  .content-item:hover {
+    border-left: 3px solid #000000;
+  }
+  .btn-explore {
+    color: white; /* Maintain this */
+  }
+
+  .btn-explore {
+    color: white; /* Maintain this */
+  }
+
+  .content-item:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .content-card {
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  }
+
+  /* ===== DARK GRAY MISSION SECTION ===== */
+.mission-section {
+    margin: 120px 0;
+    padding: 0 20px;
+}
+
+.mission-card {
+    background: linear-gradient(135deg, #2a2e35 0%, #1a1d23 100%);
+    color: #f0f0f0;
+    border-radius: 16px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.mission-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.mission-content h2 i {
+    color: #a1a8b3;
+    font-size: 2rem;
+}
+
+.mission-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 600px;
+    color: #c2c6cc;
+    position: relative;
+    z-index: 2;
+}
+
+.flight-animation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.airplane {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: smootherFlight 25s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
+    top: 40%;
+    right: -80px;
+}
+
+/* Flight keyframes smoother */
+@keyframes smootherFlight {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        transform: translateX(-130vw) translateY(-10vh) rotate(-3deg);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Glowing line */
+.flight-animation::before {
+    content: "";
+    position: absolute;
+    top: 42%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 30%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.3) 70%,
+        transparent 100%
+    );
+    animation: pathGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes pathGlow {
+    from { opacity: 0.4; }
+    to { opacity: 0.8; }
+} 
+
+/* ===== QUOTES STYLING ===== */
+.quotes-section {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+blockquote {
+    position: relative;
+    padding-left: 40px;
+    font-style: italic;
+    color: #d1d5db;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+blockquote::before {
+    position: absolute;
+    left: 0;
+    top: -15px;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.05);
+    font-family: serif;
+    line-height: 1;
+}
+
+cite {
+    display: block;
+    margin-top: 15px;
+    font-style: normal;
+    font-weight: 500;
+    color: #a1a8b3;
+    font-size: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .mission-card {
+        padding: 40px 30px;
+    }
+    
+    .mission-content h2 {
+        font-size: 2rem;
+        justify-content: center;
+    }
+    
+    .airplane {
+        font-size: 2.5rem;
+        top: 20%;
+    }
+    
+    .flight-animation::before {
+        top: 22%;
+    }
+}
+/* Contact Section */
+.contact {
+    background: #f4f4f4;
+    padding: 60px 0;
+    color: #333;
+}
+
+.contact-card {
+    background: #fff;
+    padding: 30px;
+    border: 2px solid #333; /* Black border around the card */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: scale(1.02); /* Smooth zoom effect */
+    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+}
+
+.contact-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.contact-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #333; /* Black border for contact items */
+}
+
+.contact-item:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px); /* Smooth upward animation on hover */
+}
+
+.contact-item i {
+    font-size: 1.8rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover i {
+    color: #333; /* Icon color change on hover */
+}
+
+.contact-item p {
+    color: #333;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover p {
+    color: #555; /* Text color change on hover */
+}
+
+
+/* Find Me Section */
+.find-me {
+    background: #2c3e50;
+    padding: 40px 0;
+    color: #fff;
+}
+
+.find-me-card {
+    background: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.social-link {
+    color: #bdc3c7;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: #ecf0f1;
+}
+
+.social-link i {
+    margin-right: 10px;
+}
+/* ===== GLOBAL MOBILE FIXES ===== */
+@media (max-width: 767px) {
+    /* Hero Section */
+    .hero {
+      height: 90vh; /* Slightly shorter for mobile */
+      padding: 0 15px;
+    }
+  
+    .animated-title {
+      font-size: 2.2rem !important;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+  
+    .animated-subtitle {
+      font-size: 1.1rem !important;
+      margin-bottom: 20px;
+    }
+  
+    .btn-explore {
+      padding: 10px 25px;
+      font-size: 0.9rem;
+    }
+  
+    /* Services Grid */
+    .content-dropdown {
+      padding: 50px 15px !important;
+    }
+  
+    .content-card {
+      padding: 25px 15px !important;
+      border-radius: 10px !important;
+    }
+  
+    .content-grid {
+      grid-template-columns: 1fr !important; /* Stack items */
+      gap: 20px !important;
+    }
+  
+    .content-item {
+      padding: 20px !important;
+    }
+  
+    /* Mission Section */
+    .mission-section {
+      margin: 60px 0 !important;
+      padding: 0 15px !important;
+    }
+  
+    .mission-card {
+      padding: 30px 20px !important;
+      text-align: center;
+    }
+  
+    .mission-content h2 {
+      font-size: 1.8rem !important;
+      justify-content: center;
+    }
+  
+    .mission-content p {
+      font-size: 1rem !important;
+      margin: 0 auto;
+    }
+  
+    /* Flight Animation - Simplified for mobile */
+    .flight-animation {
+      position: relative !important;
+      width: 100% !important;
+      height: 80px !important;
+      margin: 30px 0 !important;
+      top: 0 !important;
+      right: 0 !important;
+    }
+  
+    .airplane {
+      position: relative !important;
+      font-size: 2rem !important;
+      animation: mobileFlight 6s linear infinite !important;
+      right: auto !important;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    @keyframes mobileFlight {
+      0% { transform: translateX(-100vw) translateY(0) rotate(-10deg); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateX(100vw) translateY(-20px) rotate(10deg); opacity: 0; }
+    }
+  
+    /* Hide flight path on mobile */
+    .flight-animation::before {
+      display: none;
+    }
+  
+    /* Quotes Section */
+    .quotes-section {
+      margin-top: 30px !important;
+      padding-top: 30px !important;
+    }
+  
+    blockquote {
+      padding-left: 20px !important;
+      font-size: 1rem !important;
+    }
+  
+    blockquote::before {
+      font-size: 2.5rem !important;
+      top: -10px !important;
+    }
+  }
+  
+  /* Special landscape adjustments */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+      height: auto;
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+    
+    .mission-section {
+      margin: 40px 0 !important;
+    }
+  }
+
