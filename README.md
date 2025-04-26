@@ -1,3 +1,4 @@
+
 # 🌐 INFILOR Solutions Website
 
 ![Hero Section Preview](assets/preview.jpg)
@@ -20,3 +21,5 @@ A modern, responsive website for **INFILOR Solutions**, featuring elegant animat
 
 ## 📱 Mobile Preview
 ![Mobile View]
+=======
+# Infilor
